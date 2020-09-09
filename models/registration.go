@@ -49,6 +49,7 @@ const (
 	FormatCSV             = "CSV"
 	FormatThingsBoardJSON = "THINGSBOARD_JSON"
 	FormatNOOP            = "NOOP"
+	FormatHikvision       = "HIKVISION_JSON"
 )
 
 const (
@@ -153,7 +154,8 @@ func (reg Registration) Validate() (bool, error) {
 			reg.Format != FormatAWSJSON &&
 			reg.Format != FormatCSV &&
 			reg.Format != FormatThingsBoardJSON &&
-			reg.Format != FormatNOOP {
+			reg.Format != FormatNOOP &&
+			reg.Format != FormatHikvision {
 			return false, NewErrContractInvalid(fmt.Sprintf("Format invalid: %s", reg.Format))
 		}
 
